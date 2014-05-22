@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cagnosolutions.cei.spring.data.UserDao;
+import com.cagnosolutions.cei.spring.data.UserRepository;
 import com.cagnosolutions.cei.spring.domain.User;
 
 @Transactional
@@ -14,8 +14,7 @@ import com.cagnosolutions.cei.spring.domain.User;
 public class UserService {
 
 	@Autowired
-	//private UserDaoRepo dao;
-	private UserDao dao;
+	private UserRepository dao;
 	
 	public void insert(User user){
 		dao.save(user);

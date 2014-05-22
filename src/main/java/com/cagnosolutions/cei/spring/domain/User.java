@@ -15,9 +15,9 @@ public class User {
 	private Long id;
 	private String name;
 	private String email;
+	private String pass;
 	
-	// JPA
-	protected User() {}
+	public User() {}
 	
 	public User(String name, String email) {
 		this.name = name;
@@ -51,4 +51,13 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
 }

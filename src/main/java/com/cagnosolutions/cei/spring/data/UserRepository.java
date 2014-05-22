@@ -7,6 +7,6 @@ import com.cagnosolutions.cei.spring.domain.User;
 
 @Repository
 @Transactional
-public interface UserDaoRepo extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
 	User findByEmail( String email );
 }

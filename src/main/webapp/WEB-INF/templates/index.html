@@ -39,12 +39,12 @@
 					<a class="navbar-brand" href="#">Project name</a>
 				</div>
 				<div class="navbar-collapse collapse">
-					<form class="navbar-form navbar-right" role="form" th:action="@{/login}" method="post">
+					<form name="f" class="navbar-form navbar-right" role="form" th:action="@{/login}" method="post">
 						<div class="form-group">
-							<input type="email" name="email" placeholder="Email" class="form-control"/>
+							<input type="text" id="username" name="username" placeholder="Email" class="form-control"/>
 						</div>
 						<div class="form-group">
-							<input type="password" name="pass" placeholder="Password" class="form-control"/>
+							<input type="password" id="password" name="password" placeholder="Password" class="form-control"/>
 						</div>
 						<button type="submit" class="btn btn-success">Sign in</button>
 						<a id="register" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</a>
@@ -57,6 +57,12 @@
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
 			<div class="container">
+				<div th:if="${param.error}" class="alert alert-danger">    
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success"> 
+                    You have been logged out.
+                </div>
 				<h1 th:text="${msg}"></h1>
 				<div class="table-responsive">
 					<table class="table">

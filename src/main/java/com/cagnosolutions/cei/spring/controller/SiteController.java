@@ -14,22 +14,14 @@ public class SiteController {
 
 	@Autowired
 	private UserService userService;
-	
-	@RequestMapping("/")
-	public String indexHandler(@RequestParam(value="msg", required = false) String msg, Model model) {
-		model.addAttribute("msg", msg);
-		model.addAttribute("user", new User());
-		model.addAttribute("userList", userService.findAll());
-		return "index";
-	}
 
 	@RequestMapping("/addUser")
 	public String addUser(@RequestParam(value="confirm", required = true)String confirm, User user, Model model) {
-		if (confirm.equals(user.getPass())) {
+		if (confirm.equals(user.getPass()) && user.getPass().length() > 1) {
 			userService.insert(user);
-			return "redirect:/?msg="+user.getName()+" added successfully.";
+			return "redirect:/login";
 		} else {
-			return "redirect:/?msg=ERROR";
+			return "redirect:/login";
 		}
 	}
 }

@@ -40,7 +40,9 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<div class="navbar-form navbar-right">
-						<a th:href="@{/logout}" class="btn btn-primary">Logout</a>
+						<form method="post" th:action="@{/logout}">
+							<button type="submit" class="btn btn-success">Logout</button>
+						</form>
 					</div>
 				</div>
 				<!--/.navbar-collapse -->

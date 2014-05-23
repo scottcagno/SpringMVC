@@ -11,6 +11,8 @@ dependencies {
 	compile "org.springframework:spring-webmvc:${springVersion}.RELEASE"
 	compile "org.thymeleaf:thymeleaf-spring4:2.1.3.RELEASE"
 	compile "org.hibernate:hibernate-entitymanager:4.3.5.Final"
+	compile "org.springframework.security:spring-security-web:3.2.4.RELEASE"
+    compile "org.springframework.security:spring-security-config:3.2.4.RELEASE"
 	providedCompile "javax.servlet:javax.servlet-api:3.+"
 }
 

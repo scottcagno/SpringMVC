@@ -16,6 +16,7 @@ public class User {
 	private String name;
 	private String email;
 	private String pass;
+	private String securityRole = "ROLE_USER";
 	
 	public User() {}
 	
@@ -58,6 +59,14 @@ public class User {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getSecurityRole() {
+		return securityRole;
+	}
+
+	public void setSecurityRole(String role) {
+		this.securityRole = role;
 	}
 	
 }

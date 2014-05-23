@@ -57,6 +57,12 @@
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
 			<div class="container">
+				<div th:if="${param.error}" class="alert alert-danger">    
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success"> 
+                    You have been logged out.
+                </div>
 				<h1 th:text="${msg}"></h1>
 				<div class="table-responsive">
 					<table class="table">
@@ -64,12 +70,21 @@
 							<th>ID</th>
 							<th>Email</th>
 							<th>Name</th>
+							<th>Role</th>
+							<th>Delete</th>
 						</thead>
 						<tbody>
 							<tr th:each="next : ${userList}">
 								<td th:text="${next.id}"></td>
 								<td th:text="${next.email}"></td>
 								<td th:text="${next.name}"></td>
+								<td th:text="${next.securityRole}"></td>
+								<td>
+									<form role="form" th:action="@{/deleteUser}" method="post">
+										<input name="id" value="${next.id}" hidden="hidden"/>
+										<button class="btn btn-danger" type="submit">Delete</button>
+									</form>
+								</td>
 							</tr>
 						</tbody>
 					</table>
